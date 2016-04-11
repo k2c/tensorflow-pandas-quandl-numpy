@@ -13,7 +13,6 @@ USER root
 RUN locale-gen en_US en_US.UTF-8
 RUN dpkg-reconfigure locales 
 
-
 RUN apt-get clean && apt-get upgrade -y && apt-get update -y --fix-missing
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -yq \
