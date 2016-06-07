@@ -1,6 +1,6 @@
 FROM ubuntu:15.10
 
-MAINTAINER Kushal kushalchawda@gmail.com
+MAINTAINER kc2 kc2@gmail.com
 
 ENV LANGUAGE en_US.UTF-8
 ENV LANG en_US.UTF-8
@@ -22,6 +22,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -yq \
         libatlas-base-dev libatlas-base-dev liblapack-dev gfortran build-essential gcc \
         curl libcurl4-openssl-dev \
         pkg-config libpng-dev libfreetype6 libfreetype6-dev
+       
 
 RUN curl -O https://bootstrap.pypa.io/get-pip.py && \
         python3 get-pip.py
@@ -48,5 +49,5 @@ RUN apt-get clean && apt-get upgrade -y && apt-get update -y --fix-missing
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -yq python3-numpy python3-scipy
 
 RUN pip3 install -U wheel six sklearn pandas requests
-RUN pip3 install -U wheel quandl
+RUN pip3 install -U wheel quandl mpld3
 RUN pip3 install --upgrade https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-0.6.0-cp34-none-linux_x86_64.whl
